@@ -1,10 +1,10 @@
+//  15 PUZZLE
+//  PROJECT 2
+//  CS470 - Spring 2014
 //
-//  ViewController.m
-//  15 Puzzle
-//
-//  Created by David Wells on 2/6/14.
+//  CREATED BY DAVID WELLS
 //  Copyright (c) 2014 David Wells. All rights reserved.
-//
+//  All code not provided by Professor Kooshesh is the sole work of David Wells for CS470 at Sonoma State University.
 
 #import "ViewController.h"
 
