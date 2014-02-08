@@ -216,7 +216,6 @@
                         <outlet property="button7" destination="kaN-Ov-GH3" id="pla-ED-hzw"/>
                         <outlet property="button8" destination="xEA-KJ-HPP" id="6cF-Bl-D4T"/>
                         <outlet property="button9" destination="tfY-zR-zNJ" id="S7P-1u-uQ7"/>
-                        <outlet property="tile10" destination="axU-fT-kTg" id="jtO-nj-qOC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
