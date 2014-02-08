@@ -29,19 +29,69 @@
     
     
     [self createSolvedState];
-    
+    [self initializeSwipeGestureRecognizers];
     
     
     
 }
 
 
-- (IBAction)shuffleTiles:(UIButton *)sender {
+-(void) leftSwipeAction: (UISwipeGestureRecognizer *)sender
+{
+    NSLog(@"Swiped left!");
+    
+}
+
+-(void) rightSwipeAction: (UISwipeGestureRecognizer *)sender
+{
+    NSLog(@"Swiped right!");
+    
+}
+
+-(void) upSwipeAction: (UISwipeGestureRecognizer *)sender
+{
+    NSLog(@"Swiped up!");
+    
+}
+
+-(void) downSwipeAction: (UISwipeGestureRecognizer *)sender
+{
+    NSLog(@"Swiped down!");
+    
+}
+
+-(void) initializeSwipeGestureRecognizers
+{
+    self.leftSwipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(leftSwipeAction:)];
+    [self.leftSwipe setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.view addGestureRecognizer:self.leftSwipe];
+    
+    self.rightSwipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(rightSwipeAction:)];
+    [self.rightSwipe setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:self.rightSwipe];
+    
+    self.upSwipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(upSwipeAction:)];
+    [self.upSwipe setDirection:UISwipeGestureRecognizerDirectionUp];
+    [self.view addGestureRecognizer:self.upSwipe];
+    
+    self.downSwipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(downSwipeAction:)];
+    [self.downSwipe setDirection:UISwipeGestureRecognizerDirectionDown];
+    [self.view addGestureRecognizer:self.downSwipe];
+    
     
     
 }
 
-- (IBAction)didPressButton:(UIButton*)sender {
+
+
+- (IBAction)shuffleTiles:(UIButton *)sender
+{
+    
+    
+}
+
+- (IBAction)didPressButton:(UIButton*)sender
+{
     
     NSLog(@"Button %@ pressed", [sender currentTitle] );
 }
