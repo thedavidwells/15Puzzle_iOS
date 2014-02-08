@@ -26,7 +26,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *button13;
 @property (weak, nonatomic) IBOutlet UIButton *button14;
 @property (weak, nonatomic) IBOutlet UIButton *button15;
+@property (weak, nonatomic) IBOutlet UIButton *blankButton;
 
+@property(nonatomic) NSMutableArray *solvedState;
 
+@property (weak, nonatomic) IBOutlet UIButton *shuffle;
+@property (weak, nonatomic) IBOutlet UIButton *reset;
+
+@property (weak, nonatomic) IBOutlet UISlider *difficultySlider;
 
 @end

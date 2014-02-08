@@ -222,6 +222,7 @@
                                 </state>
                                 <connections>
                                     <action selector="didPressButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ebT-6c-BO4"/>
+                                    <action selector="shuffleTiles:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="DGv-tE-hAq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIK-6f-45x">
@@ -248,10 +249,24 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xuq-Qd-Kda">
+                                <rect key="frame" x="222" y="275" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="t8c-2M-4qs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="blankButton" destination="xuq-Qd-Kda" id="ab7-r2-0D5"/>
                         <outlet property="button1" destination="sZB-QS-shl" id="tTW-5U-SfY"/>
                         <outlet property="button10" destination="axU-fT-kTg" id="Qrt-an-HRk"/>
                         <outlet property="button11" destination="7sM-YM-QZZ" id="Sjr-EC-5d6"/>
@@ -267,6 +282,9 @@
                         <outlet property="button7" destination="kaN-Ov-GH3" id="pla-ED-hzw"/>
                         <outlet property="button8" destination="xEA-KJ-HPP" id="6cF-Bl-D4T"/>
                         <outlet property="button9" destination="tfY-zR-zNJ" id="S7P-1u-uQ7"/>
+                        <outlet property="difficultySlider" destination="Jed-rl-rfb" id="nvN-bG-eqo"/>
+                        <outlet property="reset" destination="HIK-6f-45x" id="QV6-Mu-p7W"/>
+                        <outlet property="shuffle" destination="jRl-tG-2EI" id="44Z-X7-Fue"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
