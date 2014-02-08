@@ -14,11 +14,23 @@
 
 @implementation ViewController
 
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
+
+
+
+- (IBAction)didPressButton:(UIButton*)sender {
+    
+    NSLog(@"Button %@ pressed", [sender currentTitle] );
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
