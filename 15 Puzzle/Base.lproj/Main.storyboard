@@ -200,6 +200,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="button1" destination="sZB-QS-shl" id="tTW-5U-SfY"/>
+                        <outlet property="button10" destination="axU-fT-kTg" id="Qrt-an-HRk"/>
+                        <outlet property="button11" destination="7sM-YM-QZZ" id="Sjr-EC-5d6"/>
+                        <outlet property="button12" destination="T7s-a6-7Dr" id="ScM-uL-6xF"/>
+                        <outlet property="button13" destination="ALg-7Z-wsd" id="51j-WT-xTg"/>
+                        <outlet property="button14" destination="9vt-9V-L9e" id="hoj-Lh-VJE"/>
+                        <outlet property="button15" destination="1tc-Ie-NOO" id="9cS-2E-GCz"/>
+                        <outlet property="button2" destination="5u4-2F-Aal" id="BRf-ny-5b3"/>
+                        <outlet property="button3" destination="pGh-ho-c50" id="5g6-3F-sit"/>
+                        <outlet property="button4" destination="UNR-O9-at2" id="8y1-IW-Pp8"/>
+                        <outlet property="button5" destination="GL2-o4-I1S" id="gfa-w6-B9b"/>
+                        <outlet property="button6" destination="PCL-jS-JZt" id="8qb-q3-rqr"/>
+                        <outlet property="button7" destination="kaN-Ov-GH3" id="pla-ED-hzw"/>
+                        <outlet property="button8" destination="xEA-KJ-HPP" id="6cF-Bl-D4T"/>
+                        <outlet property="button9" destination="tfY-zR-zNJ" id="S7P-1u-uQ7"/>
+                        <outlet property="tile10" destination="axU-fT-kTg" id="jtO-nj-qOC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

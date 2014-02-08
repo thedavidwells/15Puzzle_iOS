@@ -21,6 +21,7 @@
 		52990D9518A4BB4B00DFF0E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52990D7718A4BB4B00DFF0E8 /* UIKit.framework */; };
 		52990D9D18A4BB4B00DFF0E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52990D9B18A4BB4B00DFF0E8 /* InfoPlist.strings */; };
 		52990D9F18A4BB4B00DFF0E8 /* _5_PuzzleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52990D9E18A4BB4B00DFF0E8 /* _5_PuzzleTests.m */; };
+		52990DAA18A60D9A00DFF0E8 /* gameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52990DA918A60D9A00DFF0E8 /* gameModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		52990D9A18A4BB4B00DFF0E8 /* 15 PuzzleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "15 PuzzleTests-Info.plist"; sourceTree = "<group>"; };
 		52990D9C18A4BB4B00DFF0E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		52990D9E18A4BB4B00DFF0E8 /* _5_PuzzleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _5_PuzzleTests.m; sourceTree = "<group>"; };
+		52990DA818A60D9A00DFF0E8 /* gameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gameModel.h; sourceTree = "<group>"; };
+		52990DA918A60D9A00DFF0E8 /* gameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gameModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				52990D8518A4BB4B00DFF0E8 /* Main.storyboard */,
 				52990D8818A4BB4B00DFF0E8 /* ViewController.h */,
 				52990D8918A4BB4B00DFF0E8 /* ViewController.m */,
+				52990DA818A60D9A00DFF0E8 /* gameModel.h */,
+				52990DA918A60D9A00DFF0E8 /* gameModel.m */,
 				52990D8B18A4BB4B00DFF0E8 /* Images.xcassets */,
 				52990D7A18A4BB4B00DFF0E8 /* Supporting Files */,
 			);
@@ -250,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52990D8A18A4BB4B00DFF0E8 /* ViewController.m in Sources */,
+				52990DAA18A60D9A00DFF0E8 /* gameModel.m in Sources */,
 				52990D8418A4BB4B00DFF0E8 /* AppDelegate.m in Sources */,
 				52990D8018A4BB4B00DFF0E8 /* main.m in Sources */,
 			);
@@ -460,6 +466,7 @@
 				52990DA418A4BB4B00DFF0E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52990DA518A4BB4B00DFF0E8 /* Build configuration list for PBXNativeTarget "15 PuzzleTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +475,7 @@
 				52990DA718A4BB4B00DFF0E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
