@@ -15,10 +15,31 @@
 @property(nonatomic) UISwipeGestureRecognizer *upSwipe;
 @property(nonatomic) UISwipeGestureRecognizer *downSwipe;
 
+@property(nonatomic) NSMutableDictionary *pointDict;
+
+@property(nonatomic) NSMutableArray *shuffled;
+@property(nonatomic) int shuffleSteps;
+
 @end
 
 @implementation ViewController
 
+CGPoint button1Point;
+CGPoint button2Point;
+CGPoint button3Point;
+CGPoint button4Point;
+CGPoint button5Point;
+CGPoint button6Point;
+CGPoint button7Point;
+CGPoint button8Point;
+CGPoint button9Point;
+CGPoint button10Point;
+CGPoint button11Point;
+CGPoint button12Point;
+CGPoint button13Point;
+CGPoint button14Point;
+CGPoint button15Point;
+CGPoint blankButtonPoint;
 
 
 
@@ -30,7 +51,9 @@
     
     [self createSolvedState];
     [self initializeSwipeGestureRecognizers];
+    [self getTileLocation];
     
+   // NSLog(@"Location: %@", NSStringFromCGPoint(button1Point));
     
     
 }
@@ -39,24 +62,30 @@
 -(void) leftSwipeAction: (UISwipeGestureRecognizer *)sender
 {
     NSLog(@"Swiped left!");
+    [self getTileLocation];
+
+    
     
 }
 
 -(void) rightSwipeAction: (UISwipeGestureRecognizer *)sender
 {
     NSLog(@"Swiped right!");
+    [self getTileLocation];
     
 }
 
 -(void) upSwipeAction: (UISwipeGestureRecognizer *)sender
 {
     NSLog(@"Swiped up!");
+    [self getTileLocation];
     
 }
 
 -(void) downSwipeAction: (UISwipeGestureRecognizer *)sender
 {
     NSLog(@"Swiped down!");
+    [self getTileLocation];
     
 }
 
@@ -82,13 +111,129 @@
     
 }
 
+-(void) getTileLocation
+{
+    
+    if (!_pointDict) {
+        self.pointDict = [[NSMutableDictionary alloc] init];
+    }
+    
+    
+    button1Point = CGPointMake(self.button1.frame.origin.x, self.button1.frame.origin.y);
+    button2Point = CGPointMake(self.button2.frame.origin.x, self.button2.frame.origin.y);
+    button3Point = CGPointMake(self.button3.frame.origin.x, self.button3.frame.origin.y);
+    button4Point = CGPointMake(self.button4.frame.origin.x, self.button4.frame.origin.y);
+    button5Point = CGPointMake(self.button5.frame.origin.x, self.button5.frame.origin.y);
+    button6Point = CGPointMake(self.button6.frame.origin.x, self.button6.frame.origin.y);
+    button7Point = CGPointMake(self.button7.frame.origin.x, self.button7.frame.origin.y);
+    button8Point = CGPointMake(self.button8.frame.origin.x, self.button8.frame.origin.y);
+    button9Point = CGPointMake(self.button9.frame.origin.x, self.button9.frame.origin.y);
+    button10Point = CGPointMake(self.button10.frame.origin.x, self.button10.frame.origin.y);
+    button11Point = CGPointMake(self.button11.frame.origin.x, self.button11.frame.origin.y);
+    button12Point = CGPointMake(self.button12.frame.origin.x, self.button12.frame.origin.y);
+    button13Point = CGPointMake(self.button13.frame.origin.x, self.button13.frame.origin.y);
+    button14Point = CGPointMake(self.button14.frame.origin.x, self.button14.frame.origin.y);
+    button15Point = CGPointMake(self.button15.frame.origin.x, self.button15.frame.origin.y);
+    blankButtonPoint = CGPointMake(self.blankButton.frame.origin.x, self.blankButton.frame.origin.y);
 
+    
+    
+    [self.pointDict setValue:NSStringFromCGPoint(button1Point) forKey:self.button1.currentTitle];
+    [self.pointDict setValue:NSStringFromCGPoint(button2Point) forKey:self.button2.currentTitle];
+    [self.pointDict setValue:NSStringFromCGPoint(button3Point) forKey:self.button3.currentTitle];
+    [self.pointDict setValue:NSStringFromCGPoint(button4Point) forKey:self.button4.currentTitle];
+    [self.pointDict setValue:NSStringFromCGPoint(button5Point) forKey:self.button5.currentTitle];
+    [self.pointDict setValue:NSStringFromCGPoint(button6Point) forKey:self.button6.currentTitle];
+    [self.pointDict setValue:NSStringFromCGPoint(button7Point) forKey:self.button7.currentTitle];
+    [self.pointDict setValue:NSStringFromCGPoint(button8Point) forKey:self.button8.currentTitle];
+    [self.pointDict setValue:NSStringFromCGPoint(button9Point) forKey:self.button9.currentTitle];
+    [self.pointDict setValue:NSStringFromCGPoint(button10Point) forKey:self.button10.currentTitle];
+    [self.pointDict setValue:NSStringFromCGPoint(button11Point) forKey:self.button11.currentTitle];
+    [self.pointDict setValue:NSStringFromCGPoint(button12Point) forKey:self.button12.currentTitle];
+    [self.pointDict setValue:NSStringFromCGPoint(button13Point) forKey:self.button13.currentTitle];
+    [self.pointDict setValue:NSStringFromCGPoint(button14Point) forKey:self.button14.currentTitle];
+    [self.pointDict setValue:NSStringFromCGPoint(button15Point) forKey:self.button14.currentTitle];
+    [self.pointDict setValue:NSStringFromCGPoint(blankButtonPoint) forKey:self.blankButton.currentTitle];
+    
+        /*
+    for (NSString *key in [self.pointDict allKeys]) {
+        NSLog(@"Button %@ - %@", key, [self.pointDict objectForKey:key]);
+    }
+         */
+    
+}
 
 - (IBAction)shuffleTiles:(UIButton *)sender
 {
+    self.shuffled = [[NSMutableArray alloc] init];
+    
+    self.shuffleSteps = (int)(self.difficultySlider.value * 50.0);
+    NSLog(@"Shuffle value: %d", self.shuffleSteps);
+    
+    [self.shuffled setArray:self.solvedState];
+    
+    [self randomizeTiles];
+    
+}
+
+-(void) randomizeTiles
+{
+
+    
+    NSLog(@"Number of items in array: %d", [self.shuffled count]);
+    for (int i = 0; i < self.shuffleSteps; i++) {
+
+        int temp = arc4random() % 4;
+        
+        if (temp == 1) {
+            [self swapLeft];
+        }
+        
+        if (temp == 2) {
+            [self swapRight];
+        }
+        
+        if (temp == 3) {
+            [self swapUp];
+        }
+        
+        if (temp == 4) {
+            [self swapDown];
+        }
+        
+    }
+    
+}
+
+-(void) swapTiles
+{
+    
+    
     
     
 }
+
+-(void) swapLeft
+{
+    NSLog(@"Swap Left");
+}
+
+-(void) swapRight
+{
+    NSLog(@"Swap Right");
+}
+-(void) swapUp
+{
+    NSLog(@"Swap Up");
+}
+
+-(void) swapDown
+{
+    NSLog(@"Swap Down");
+}
+
+
+
 
 - (IBAction)didPressButton:(UIButton*)sender
 {
@@ -117,6 +262,7 @@
     [self.solvedState addObject:self.button13];
     [self.solvedState addObject:self.button14];
     [self.solvedState addObject:self.button15];
+    [self.solvedState addObject:self.blankButton];
     
     NSLog(@"Number of items in array: %d", [self.solvedState count]);
     
