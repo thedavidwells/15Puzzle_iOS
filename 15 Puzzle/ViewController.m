@@ -57,11 +57,13 @@ CGPoint blankButtonPoint;
     [[UISlider appearance] setThumbImage:[UIImage imageNamed:@"goldskull.png"] forState:UIControlStateNormal];
     
     [self createSolvedState];
-    NSLog(@"Solved state in the view has: %d items", self.solvedState.count);
+    //NSLog(@"Solved state in the view has: %d items", self.solvedState.count);
+    
     [self initializeSwipeGestureRecognizers];
     [self getTileLocation];
-    NSLog(@"Current game state array size: %d", [self.currentGameState count]);
-   // NSLog(@"Location: %@", NSStringFromCGPoint(button1Point));
+    
+    // NSLog(@"Current game state array size: %d", [self.currentGameState count]);
+    // NSLog(@"Location: %@", NSStringFromCGPoint(button1Point));
     
     [self.gameLogic setSolutionArray:self.solvedState];
     [self.gameLogic maintainState:self.currentGameState];

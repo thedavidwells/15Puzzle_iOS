@@ -13,6 +13,8 @@
 @property (nonatomic) NSMutableArray *solvedState;
 @property (nonatomic) NSMutableArray *currentState;
 
+@property(nonatomic) int firstRun;
+@property(nonatomic) bool win;
 @end
 
 
@@ -34,7 +36,7 @@
     
     
     if ([self.solvedState isEqualToArray:self.currentState]) {
-        NSLog(@"YOU WIN!");
+        // NSLog(@"YOU WIN!");
         solved = true;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"WINNER!"
                                                         message:@"You slayed the 15-Puzzle Dragon!"
@@ -54,12 +56,14 @@
 -(void) maintainState: (NSMutableArray *)state
 {
     self.currentState = state;
-    NSLog(@"Current array size: %d ", self.currentState.count);
+    //NSLog(@"Current array size: %d ", self.currentState.count);
     
-    if (self.gameSolved) {
-        NSLog(@"YOU WIN!");
+    
+    if (self.firstRun > 0) {
+        
+        self.win = self.gameSolved;
     }
-    
+    self.firstRun++;
 }
 
 
