@@ -7,6 +7,7 @@
 //  All code not provided by Professor Kooshesh is the sole work of David Wells for CS470 at Sonoma State University.
 
 #import "ViewController.h"
+#import "gameModel.h"
 
 @interface ViewController ()
 
@@ -19,6 +20,8 @@
 
 @property(nonatomic) NSMutableArray *shuffled;
 @property(nonatomic) int shuffleSteps;
+
+@property(nonatomic) gameModel *gameLogic;
 
 @end
 
@@ -48,12 +51,22 @@ CGPoint blankButtonPoint;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    // Begin 15-Puzzle Implementation by David Wells:
+    
+    self.gameLogic = [[gameModel alloc] init];
+    
     
     [self createSolvedState];
+    NSLog(@"Solved state in the view has: %d items", self.solvedState.count);
     [self initializeSwipeGestureRecognizers];
     [self getTileLocation];
     NSLog(@"Current game state array size: %d", [self.currentGameState count]);
    // NSLog(@"Location: %@", NSStringFromCGPoint(button1Point));
+    
+    [self.gameLogic setSolutionArray:self.solvedState];
+    [self.gameLogic maintainState:self.currentGameState];
+    
+    
     
     
 }
@@ -65,7 +78,7 @@ CGPoint blankButtonPoint;
     [self getTileLocation];
     [self swapLeft];
     
-    
+    [self.gameLogic maintainState:self.currentGameState];
 }
 
 -(void) rightSwipeAction: (UISwipeGestureRecognizer *)sender
@@ -73,6 +86,8 @@ CGPoint blankButtonPoint;
     NSLog(@"Swiped right!");
     [self getTileLocation];
     [self swapRight];
+    
+    [self.gameLogic maintainState:self.currentGameState];
 }
 
 -(void) upSwipeAction: (UISwipeGestureRecognizer *)sender
@@ -81,6 +96,8 @@ CGPoint blankButtonPoint;
     [self getTileLocation];
     [self swapUp];
     NSLog(@"Current game state array size: %d", [self.currentGameState count]);
+    
+    [self.gameLogic maintainState:self.currentGameState];
 }
 
 -(void) downSwipeAction: (UISwipeGestureRecognizer *)sender
@@ -88,6 +105,8 @@ CGPoint blankButtonPoint;
     NSLog(@"Swiped down!");
     [self getTileLocation];
     [self swapDown];
+    
+    [self.gameLogic maintainState:self.currentGameState];
 }
 
 -(void) initializeSwipeGestureRecognizers

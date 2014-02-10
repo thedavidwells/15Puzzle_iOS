@@ -10,4 +10,15 @@
 
 @interface gameModel : NSObject
 
+/*
+ You have to use a model -- an Objective-C class in addition to the ViewController (i) to maintain the state of the game and to (ii) determine if the game has been solved.
+ */
+
+-(void) setSolutionArray: (NSMutableArray *)solution;
+
+-(BOOL) gameSolved;
+
+-(void) maintainState: (NSMutableArray *)state;
+
+
 @end

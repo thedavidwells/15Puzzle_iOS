@@ -8,6 +8,60 @@
 
 #import "gameModel.h"
 
+@interface gameModel()
+
+@property (nonatomic) NSMutableArray *solvedState;
+@property (nonatomic) NSMutableArray *currentState;
+
+@end
+
+
+
 @implementation gameModel
+
+
+-(void) setSolutionArray: (NSMutableArray *)solution
+{
+    self.solvedState = solution;
+    
+    NSLog(@"Solved state in the model has: %d items", self.solvedState.count);
+}
+
+
+-(BOOL) gameSolved
+{
+    bool solved = false;
+    
+    
+    if ([self.solvedState isEqualToArray:self.currentState]) {
+        NSLog(@"YOU WIN!");
+        solved = true;
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"WINNER!"
+                                                        message:@"You slayed the 15-Puzzle Dragon!"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        //[alert release];
+    }
+    else{
+        solved = false;
+    }
+    
+    return solved;
+}
+
+-(void) maintainState: (NSMutableArray *)state
+{
+    self.currentState = state;
+    NSLog(@"Current array size: %d ", self.currentState.count);
+    
+    if (self.gameSolved) {
+        NSLog(@"YOU WIN!");
+    }
+    
+}
+
+
 
 @end
