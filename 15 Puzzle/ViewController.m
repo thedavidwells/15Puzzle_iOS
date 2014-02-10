@@ -228,23 +228,7 @@ CGPoint blankButtonPoint;
     }
     [self getTileLocation];
     [self.currentGameState setArray:self.solvedState];
-    
-    /* working shuffle with no animation showing up:
-    for (int i = 0; i < [self.currentGameState count]; i++) {
-        [self.currentGameState replaceObjectAtIndex:i withObject:[self.solvedState objectAtIndex:i]];
-        UIButton *originalButton = [self.solvedState objectAtIndex:i];
-        CGPoint originalPoint = originalButton.center;
-        
-        [UIView animateWithDuration:1.5 animations:^{
-            
-            [[self.currentGameState objectAtIndex:i] setCenter:originalPoint];
-            
-            
-        }];
-        NSLog(@"current button: %@", originalButton.titleLabel);
-        
-    }
-    */
+
 }
 
 
@@ -267,13 +251,13 @@ CGPoint blankButtonPoint;
             CGPoint swapPoint2 = swap2.center;
             
             
-            [UIView animateWithDuration:1.5 animations:^{
+            [UIView animateWithDuration:1 animations:^{
             
                 [[self.currentGameState objectAtIndex:i] setCenter:swapPoint2];
                 
             }];
             
-            [UIView animateWithDuration:1.5 animations:^{
+            [UIView animateWithDuration:1 animations:^{
                 
                 [[self.currentGameState objectAtIndex:i-1] setCenter:swapPoint1];
                 
@@ -307,13 +291,13 @@ CGPoint blankButtonPoint;
             CGPoint swapPoint2 = swap2.center;
             
             
-            [UIView animateWithDuration:1.5 animations:^{
+            [UIView animateWithDuration:1 animations:^{
                 
                 [[self.currentGameState objectAtIndex:i] setCenter:swapPoint2];
                 
             }];
             
-            [UIView animateWithDuration:1.5 animations:^{
+            [UIView animateWithDuration:1 animations:^{
                 
                 [[self.currentGameState objectAtIndex:i+1] setCenter:swapPoint1];
                 
@@ -348,13 +332,13 @@ CGPoint blankButtonPoint;
             CGPoint swapPoint2 = swap2.center;
             
             
-            [UIView animateWithDuration:1.5 animations:^{
+            [UIView animateWithDuration:1 animations:^{
                 
                 [[self.currentGameState objectAtIndex:i] setCenter:swapPoint2];
                 
             }];
             
-            [UIView animateWithDuration:1.5 animations:^{
+            [UIView animateWithDuration:1 animations:^{
                 
                 [[self.currentGameState objectAtIndex:i-4] setCenter:swapPoint1];
                 
@@ -387,14 +371,14 @@ CGPoint blankButtonPoint;
             CGPoint swapPoint2 = swap2.center;
             
             
-            [UIView animateWithDuration:1.5 animations:^{
+            [UIView animateWithDuration:1 animations:^{
                 
                 [[self.currentGameState objectAtIndex:i] setCenter:swapPoint2];
                 // NSLog(@"Current i value: %d", i);
                 
             }];
             
-            [UIView animateWithDuration:1.5 animations:^{
+            [UIView animateWithDuration:1 animations:^{
                 
                 [[self.currentGameState objectAtIndex:i+4] setCenter:swapPoint1];
                 // NSLog(@"Current i+4 value: %d", i+4);
