@@ -236,6 +236,7 @@
                                 </state>
                                 <connections>
                                     <action selector="didPressButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="IN8-sx-zd9"/>
+                                    <action selector="resetGame:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mp0-FO-W26"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Jed-rl-rfb">
