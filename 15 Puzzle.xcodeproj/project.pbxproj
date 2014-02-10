@@ -22,6 +22,8 @@
 		52990D9D18A4BB4B00DFF0E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52990D9B18A4BB4B00DFF0E8 /* InfoPlist.strings */; };
 		52990D9F18A4BB4B00DFF0E8 /* _5_PuzzleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52990D9E18A4BB4B00DFF0E8 /* _5_PuzzleTests.m */; };
 		52990DAA18A60D9A00DFF0E8 /* gameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52990DA918A60D9A00DFF0E8 /* gameModel.m */; };
+		52E510EE18A88CA900D07645 /* ice_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E510ED18A88CA900D07645 /* ice_landscape.png */; };
+		52E510F018A88F4000D07645 /* goldskull.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E510EF18A88F4000D07645 /* goldskull.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		52990D9E18A4BB4B00DFF0E8 /* _5_PuzzleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _5_PuzzleTests.m; sourceTree = "<group>"; };
 		52990DA818A60D9A00DFF0E8 /* gameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gameModel.h; sourceTree = "<group>"; };
 		52990DA918A60D9A00DFF0E8 /* gameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gameModel.m; sourceTree = "<group>"; };
+		52E510ED18A88CA900D07645 /* ice_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ice_landscape.png; sourceTree = "<group>"; };
+		52E510EF18A88F4000D07645 /* goldskull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldskull.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,8 @@
 		52990D7A18A4BB4B00DFF0E8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				52E510EF18A88F4000D07645 /* goldskull.png */,
+				52E510ED18A88CA900D07645 /* ice_landscape.png */,
 				52990D7B18A4BB4B00DFF0E8 /* 15 Puzzle-Info.plist */,
 				52990D7C18A4BB4B00DFF0E8 /* InfoPlist.strings */,
 				52990D7F18A4BB4B00DFF0E8 /* main.m */,
@@ -236,6 +242,8 @@
 				52990D8C18A4BB4B00DFF0E8 /* Images.xcassets in Resources */,
 				52990D7E18A4BB4B00DFF0E8 /* InfoPlist.strings in Resources */,
 				52990D8718A4BB4B00DFF0E8 /* Main.storyboard in Resources */,
+				52E510EE18A88CA900D07645 /* ice_landscape.png in Resources */,
+				52E510F018A88F4000D07645 /* goldskull.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

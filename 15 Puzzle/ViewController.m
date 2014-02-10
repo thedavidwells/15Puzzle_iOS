@@ -54,7 +54,7 @@ CGPoint blankButtonPoint;
     // Begin 15-Puzzle Implementation by David Wells:
     
     self.gameLogic = [[gameModel alloc] init];
-    
+    [[UISlider appearance] setThumbImage:[UIImage imageNamed:@"goldskull.png"] forState:UIControlStateNormal];
     
     [self createSolvedState];
     NSLog(@"Solved state in the view has: %d items", self.solvedState.count);
