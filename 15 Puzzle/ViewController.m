@@ -223,9 +223,11 @@ CGPoint blankButtonPoint;
         
 
         NSLog(@"current button: %@", currentButton.titleLabel);
-
+        
+        
     }
-    
+    [self getTileLocation];
+    [self.currentGameState setArray:self.solvedState];
     
     /* working shuffle with no animation showing up:
     for (int i = 0; i < [self.currentGameState count]; i++) {
