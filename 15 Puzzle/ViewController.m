@@ -55,6 +55,7 @@ CGPoint blankButtonPoint;
     
     self.gameLogic = [[gameModel alloc] init];
     [[UISlider appearance] setThumbImage:[UIImage imageNamed:@"goldskull.png"] forState:UIControlStateNormal];
+    self.shuffleSteps = (int)(self.difficultySlider.value * 50.0);
     
     [self createSolvedState];
     //NSLog(@"Solved state in the view has: %d items", self.solvedState.count);
@@ -68,9 +69,15 @@ CGPoint blankButtonPoint;
     [self.gameLogic setSolutionArray:self.solvedState];
     [self.gameLogic maintainState:self.currentGameState];
     
+    [self.difficultyLabel setText:[NSString stringWithFormat:@"%d", self.shuffleSteps]];
     
     
     
+}
+- (IBAction)shuffleValueChanged:(UISlider *)sender {
+    
+    self.shuffleSteps = (int)(self.difficultySlider.value * 50.0);
+    [self.difficultyLabel setText:[NSString stringWithFormat:@"%d", self.shuffleSteps]];
 }
 
 
@@ -194,34 +201,56 @@ CGPoint blankButtonPoint;
 - (IBAction)shuffleTiles:(UIButton *)sender
 {
     
+    self.animationTimer =[[NSTimer alloc] init];
+    
     self.shuffleSteps = (int)(self.difficultySlider.value * 50.0);
     NSLog(@"Shuffle value: %d", self.shuffleSteps);
     
+    //int temp = 0;
+    NSLog(@"Number of items in array: %lu", (unsigned long)[self.currentGameState count]);
+
+     for (int i = 0; i < self.shuffleSteps; i++) {
+        
+
+         //temp = arc4random() % 4;
+         //NSLog(@"Random #: %d", temp);
+        
+         self.animationTimer = [NSTimer scheduledTimerWithTimeInterval:0
+                                                               target:self
+                                                             selector:@selector(doTheShuffle)
+                                                             userInfo:nil
+                                                              repeats:NO];
+         
+    }
+    NSLog(@"Number of shuffle steps:  %d", self.shuffleSteps);
     
-    NSLog(@"Number of items in array: %d", [self.currentGameState count]);
-    for (int i = 0; i < self.shuffleSteps; i++) {
+}
+
+-(void)doTheShuffle
+{
+
         
         int temp = arc4random() % 4;
-        
-        if (temp == 1) {
+        NSLog(@"Random #: %d", temp);
+
+    
+        if (temp == 0) {
             [self swapLeft];
         }
         
-        if (temp == 2) {
+        else if (temp == 1) {
             [self swapRight];
         }
         
-        if (temp == 3) {
+        else if (temp == 2) {
             [self swapUp];
         }
         
-        if (temp == 4) {
+        else if (temp == 3) {
             [self swapDown];
         }
         
-    }
-    
-    
+
 }
 
 
@@ -253,9 +282,9 @@ CGPoint blankButtonPoint;
 }
 
 
--(void) swapLeft
+-(void) swapRight;
 {
-    NSLog(@"Swap Left");
+    NSLog(@"Swap Right");
     
     
     for (int i = 0; i < [self.currentGameState count]; i++) {
@@ -284,6 +313,12 @@ CGPoint blankButtonPoint;
                 
             }];
             
+            
+            
+            
+
+            
+            
             [self.currentGameState exchangeObjectAtIndex:i withObjectAtIndex:i-1];
             // NSLog(@"Current i value after swap: %d", i-1);
             break;
@@ -294,9 +329,9 @@ CGPoint blankButtonPoint;
     
 }
 
--(void) swapRight
+-(void) swapLeft
 {
-    NSLog(@"Swap Right");
+    NSLog(@"Swap Left");
     
     
     for (int i = 0; i < [self.currentGameState count]; i++) {
@@ -310,6 +345,8 @@ CGPoint blankButtonPoint;
             
             CGPoint swapPoint1 = swap1.center;
             CGPoint swapPoint2 = swap2.center;
+            
+        
             
             
             [UIView animateWithDuration:1 animations:^{
@@ -325,6 +362,8 @@ CGPoint blankButtonPoint;
             }];
             
             [self.currentGameState exchangeObjectAtIndex:i withObjectAtIndex:i+1];
+             
+            
             // NSLog(@"Current i value after swap: %d", i+4);
             break;
         }
@@ -334,9 +373,9 @@ CGPoint blankButtonPoint;
     
     
 }
--(void) swapUp
+-(void) swapDown
 {
-    NSLog(@"Swap Up");
+    NSLog(@"Swap Down");
     
     
     for (int i = 0; i < [self.currentGameState count]; i++) {
@@ -353,6 +392,11 @@ CGPoint blankButtonPoint;
             CGPoint swapPoint2 = swap2.center;
             
             
+
+            
+            
+            
+            
             [UIView animateWithDuration:1 animations:^{
                 
                 [[self.currentGameState objectAtIndex:i] setCenter:swapPoint2];
@@ -366,6 +410,7 @@ CGPoint blankButtonPoint;
             }];
             
             [self.currentGameState exchangeObjectAtIndex:i withObjectAtIndex:i-4];
+            
             // NSLog(@"Current i value after swap: %d", i-4);
             break;
         }
@@ -373,9 +418,9 @@ CGPoint blankButtonPoint;
     }
 }
 
--(void) swapDown
+-(void) swapUp
 {
-    NSLog(@"Swap Down");
+    NSLog(@"Swap Up");
     
     
     for (int i = 0; i < [self.currentGameState count]; i++) {
@@ -390,6 +435,10 @@ CGPoint blankButtonPoint;
             
             CGPoint swapPoint1 = swap1.center;
             CGPoint swapPoint2 = swap2.center;
+            
+
+            
+            
             
             
             [UIView animateWithDuration:1 animations:^{
@@ -407,6 +456,7 @@ CGPoint blankButtonPoint;
             }];
             
             [self.currentGameState exchangeObjectAtIndex:i withObjectAtIndex:i+4];
+            
             // NSLog(@"Current i value after swap: %d", i+4);
             break;
         }

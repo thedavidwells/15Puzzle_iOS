@@ -11,6 +11,7 @@
 @interface ViewController : UIViewController
 
 
+
 @property (weak, nonatomic) IBOutlet UIButton *button1;
 @property (weak, nonatomic) IBOutlet UIButton *button2;
 @property (weak, nonatomic) IBOutlet UIButton *button3;
@@ -35,5 +36,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *reset;
 
 @property (weak, nonatomic) IBOutlet UISlider *difficultySlider;
+@property (weak, nonatomic) IBOutlet UILabel *difficultyLabel;
+
+@property(nonatomic) NSTimer *animationTimer;
+
 
 @end
