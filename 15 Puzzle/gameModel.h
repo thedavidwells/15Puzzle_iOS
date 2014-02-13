@@ -20,5 +20,8 @@
 
 -(void) maintainState: (NSMutableArray *)state;
 
-
+-(NSMutableArray *) moveRight;
+-(NSMutableArray *) moveLeft;
+-(NSMutableArray *) moveDown;
+-(NSMutableArray *) moveUp;
 @end
