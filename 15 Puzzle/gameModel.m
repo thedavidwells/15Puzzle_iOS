@@ -39,12 +39,12 @@
         // NSLog(@"YOU WIN!");
         solved = true;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"WINNER!"
-                                                        message:@"You slayed the 15-Puzzle Dragon!"
+                                                        message:@"You have won!"
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
-        //[alert release];
+
     }
     else{
         solved = false;
@@ -56,8 +56,6 @@
 -(void) maintainState: (NSMutableArray *)state
 {
     self.currentState = state;
-    //NSLog(@"Current array size: %d ", self.currentState.count);
-    
     
     if (self.firstRun > 0) {
         
@@ -65,6 +63,15 @@
     }
     self.firstRun++;
 }
+
+
+
+
+
+
+
+
+
 
 
 
