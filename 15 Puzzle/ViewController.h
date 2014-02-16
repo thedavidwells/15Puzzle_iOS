@@ -27,8 +27,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *button15;
 @property (weak, nonatomic) IBOutlet UIButton *blankButton;
 
-
-
 @property (weak, nonatomic) IBOutlet UIButton *shuffle;
 @property (weak, nonatomic) IBOutlet UIButton *reset;
 

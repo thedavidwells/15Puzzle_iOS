@@ -10,24 +10,18 @@
 
 @interface gameModel : NSObject
 
-/*
- You have to use a model -- an Objective-C class in addition to the ViewController (i) to maintain the state of the game and to (ii) determine if the game has been solved.
- */
 
 @property (nonatomic) NSMutableArray *solvedState;
 @property (nonatomic) NSMutableArray *currentState;
 
 -(void) setSolutionArray: (NSMutableArray *)solution;
-
 -(BOOL) gameSolved;
-
--(void) maintainState;
-
+-(void) setCurrentState;
 -(void) moveRight;
 -(void) moveLeft;
 -(void) moveDown;
 -(void) moveUp;
--(void)doTheShuffle: (int) steps;
+-(void) doTheShuffle: (int) steps;
 -(void) performResetLogic;
 -(void) getButtons: (UIButton*)aParticularButton;
 

@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "gameModel.h"
 
+
 @interface ViewController ()
 
 @property(nonatomic) UISwipeGestureRecognizer *leftSwipe;
@@ -16,18 +17,14 @@
 @property(nonatomic) UISwipeGestureRecognizer *upSwipe;
 @property(nonatomic) UISwipeGestureRecognizer *downSwipe;
 
-
-@property(nonatomic) NSMutableArray *shuffled;
 @property(nonatomic) int shuffleSteps;
-
 @property(nonatomic) gameModel *gameLogic;
 
 @end
 
+
+
 @implementation ViewController
-
-
-
 
 
 - (void)viewDidLoad
@@ -35,20 +32,17 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    // Begin 15-Puzzle Implementation by David Wells:
     
+    // Begin 15-Puzzle Implementation by David Wells:
     self.gameLogic = [[gameModel alloc] init];
     [self createSolvedState];
-    [self.gameLogic maintainState];
+    [self.gameLogic setCurrentState];
     
     [[UISlider appearance] setThumbImage:[UIImage imageNamed:@"goldskull.png"] forState:UIControlStateNormal];
     self.shuffleSteps = (int)(self.difficultySlider.value * 50.0);
     [self.difficultyLabel setText:[NSString stringWithFormat:@"%d", self.shuffleSteps]];
     
-    
     [self initializeSwipeGestureRecognizers];
-
-  
 }
 
 
@@ -64,8 +58,7 @@
     NSLog(@"Swiped left!");
 
     [self.gameLogic moveLeft];
-    
-
+    [self.gameLogic setCurrentState];
 }
 
 -(void) rightSwipeAction: (UISwipeGestureRecognizer *)sender
@@ -73,8 +66,7 @@
     NSLog(@"Swiped right!");
 
     [self.gameLogic moveRight];
-    
-
+    [self.gameLogic setCurrentState];
 }
 
 -(void) upSwipeAction: (UISwipeGestureRecognizer *)sender
@@ -82,8 +74,7 @@
     NSLog(@"Swiped up!");
 
     [self.gameLogic moveUp];
-    
-
+    [self.gameLogic setCurrentState];
 }
 
 -(void) downSwipeAction: (UISwipeGestureRecognizer *)sender
@@ -91,8 +82,7 @@
     NSLog(@"Swiped down!");
 
     [self.gameLogic moveDown];
-    
-
+    [self.gameLogic setCurrentState];
 }
 
 -(void) initializeSwipeGestureRecognizers
@@ -112,7 +102,6 @@
     self.downSwipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(downSwipeAction:)];
     [self.downSwipe setDirection:UISwipeGestureRecognizerDirectionDown];
     [self.view addGestureRecognizer:self.downSwipe];
-    
 
 }
 
@@ -124,19 +113,12 @@
     NSLog(@"Shuffle value: %d", self.shuffleSteps);
 
     [self.gameLogic doTheShuffle:self.shuffleSteps];
-    
 }
 
 
-
-
-
-
 - (IBAction)resetGame:(UIButton *)sender {
-
-
-    [self.gameLogic performResetLogic];
     
+    [self.gameLogic performResetLogic];
 }
 
 
@@ -166,7 +148,6 @@
     [self.gameLogic getButtons:self.button14];
     [self.gameLogic getButtons:self.button15];
     [self.gameLogic getButtons:self.blankButton];
-
 }
 
 
